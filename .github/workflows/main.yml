@@ -29,10 +29,10 @@ jobs:
 
     - name: Run Terraform
       run: ./scripts/run-terraform.sh
-      env: # Or as an environment variable
+      env:
         TF_VAR_do_token: ${{ secrets.do_token }}
-        TF_VAR_aws_access_key_id: ${{ secrets.aws_access_key_id }}
-        TF_VAR_aws_secret_access_key: ${{ secrets.aws_secret_access_key }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_access_key }}
 
     - name: Generate Ansible inventory
       run: ./scripts/generate-do-inventory.sh
