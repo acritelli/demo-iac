@@ -3,14 +3,6 @@ variable do_token {
   sensitive = true
 }
 
-# AWS Credentials
-variable aws_access_key_id {
-  sensitive = true
-}
-variable aws_secret_access_key {
-  sensitive = true
-}
-
 # Number of webservers that we want to deploy
 variable webserver_count {
   default = 1
