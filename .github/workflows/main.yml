@@ -32,3 +32,7 @@ jobs:
 
     - name: Run Terraform
       run: ./terraform_run.sh
+      env: # Or as an environment variable
+        TF_VAR_do_token: ${{ secrets.do_token }}
+        TF_VAR_aws_access_key_id: ${{ secrets.aws_access_key_id }}
+        TF_VAR_aws_secret_access_key: ${{ secrets.aws_secret_access_key }}
