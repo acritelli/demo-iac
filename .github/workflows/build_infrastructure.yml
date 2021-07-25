@@ -1,6 +1,4 @@
-# Based loosely on: https://github.com/actions/starter-workflows/blob/main/ci/terraform.yml
-
-name: 'Terraform'
+name: 'Build, Deploy, and Configure Infrastructure'
 
 on:
   push:

@@ -1,0 +1,30 @@
+name: 'Destroy Infrastructure'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  destroy_infrastructure:
+    name: 'Destroy Infrastructure'
+    runs-on: ubuntu-latest
+    environment: production
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Clean workspace
+      uses: AutoModality/action-clean@v1
+
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Run Terraform Destroy
+      run: ./scripts/run-terraform-destroy.sh
+      env:
+        TF_VAR_do_token: ${{ secrets.do_token }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_access_key }}
