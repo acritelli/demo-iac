@@ -37,7 +37,7 @@ jobs:
     - name: Generate Ansible inventory
       run: ./do-inventory.sh
       env:
-        - DO_TOKEN: ${{ secrets.do_token }}
+        DO_TOKEN: ${{ secrets.do_token }}
 
     - name: Run Ansible
       run: ansible -v
