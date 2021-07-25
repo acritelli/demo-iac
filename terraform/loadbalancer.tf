@@ -4,7 +4,10 @@ resource "digitalocean_droplet" "demo-loadbalancer" {
     region   = "nyc3"
     size     = "s-1vcpu-1gb"
     tags     = ["demo-loadbalancers"]
-    ssh_keys = [data.digitalocean_ssh_key.personal_ssh_key.fingerprint]
+    ssh_keys = [
+      data.digitalocean_ssh_key.personal_ssh_key.fingerprint,
+      data.digitalocean_ssh_key.github_ssh_key.fingerprint
+      ]
 }
 
 resource "digitalocean_firewall" "demo-loadbalaner-firewall" {

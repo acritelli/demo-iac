@@ -4,8 +4,11 @@ resource "digitalocean_droplet" "demo-webservers" {
     name     = "webserver-${count.index}"
     region   = "nyc3"
     size     = "s-1vcpu-1gb"
-    ssh_keys = [data.digitalocean_ssh_key.personal_ssh_key.fingerprint]
     tags     = ["demo-webservers"]
+    ssh_keys = [
+      data.digitalocean_ssh_key.personal_ssh_key.fingerprint,
+      data.digitalocean_ssh_key.github_ssh_key.fingerprint
+      ]
 
     provisioner "local-exec" {
       command = "echo ${self.name} ${self.ipv4_address} >> /tmp/do_ips"

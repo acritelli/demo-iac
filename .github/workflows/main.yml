@@ -28,13 +28,16 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run Terraform
-      run: ./terraform_run.sh
+      run: ./scripts/run-terraform.sh
       env: # Or as an environment variable
         TF_VAR_do_token: ${{ secrets.do_token }}
         TF_VAR_aws_access_key_id: ${{ secrets.aws_access_key_id }}
         TF_VAR_aws_secret_access_key: ${{ secrets.aws_secret_access_key }}
 
     - name: Generate Ansible inventory
-      run: ./do-inventory.sh
+      run: ./scripts/generate-do-inventory.sh
       env:
         DO_TOKEN: ${{ secrets.do_token }}
+
+    - name: Run Ansible
+      run: ./scripts/run-ansible.sh
