@@ -4,7 +4,7 @@ variable ssh_ips {
 
 # API token for Digital Ocean
 variable do_token {
-  sensitve = true
+  sensitive = true
 }
 
 # AWS Credentials
