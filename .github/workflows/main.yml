@@ -27,6 +27,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    # Install Terraform
     - name: Install Terraform
       run: ./terraform_install.sh
+
+    - name: Run Terraform
+      run: ./terraform_run.sh
