@@ -41,3 +41,5 @@ jobs:
 
     - name: Run Ansible
       run: ./scripts/run-ansible.sh
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.ssh_private_key }}
