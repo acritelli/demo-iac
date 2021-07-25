@@ -1,0 +1,25 @@
+---
+
+- name: Force an apt update
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install Apache
+  ansible.builtin.package:
+    name: apache2
+    state: latest
+
+- name: Template out a basic website file
+  ansible.builtin.template:
+    dest: /var/www/html/index.html
+    src: var/www/html/index.html.j2
+
+- name: Copy static website content
+  ansible.builtin.copy:
+    dest: /var/www/html/website_files
+    src: var/www/html/website_files/
+
+- name: Start Apache
+  ansible.builtin.service:
+    name: apache2
+    state: started

@@ -1,0 +1,28 @@
+# Based loosely on: https://github.com/actions/starter-workflows/blob/main/ci/terraform.yml
+
+name: 'Terraform'
+
+on:
+  push:
+    branches:
+    - $default-branch
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: production
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Install Terraform
+    - name: Install Terraform
+      run: wget https://releases.hashicorp.com/terraform/1.0.3/terraform_1.0.3_linux_amd64.zip

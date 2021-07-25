@@ -1,0 +1,24 @@
+---
+
+- name: Install NGINX
+  ansible.builtin.package:
+    name: nginx
+    state: latest
+
+- name: Remove default NGINX site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Template out NGINX config file
+  ansible.builtin.template:
+    dest: /etc/nginx/conf.d/website.conf
+    src: etc/nginx/conf.d/website.conf.j2
+  notify: Restart NGINX
+
+
+- name: Start NGINX
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    

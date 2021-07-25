@@ -1,0 +1,11 @@
+- hosts: demo_webservers
+  roles:
+    - webserver
+  tags:
+    - webservers
+
+- hosts: demo_loadbalancers
+  roles:
+    - loadbalancer
+  tags:
+    - loadbalancers
