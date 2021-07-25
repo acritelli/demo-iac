@@ -1,7 +1,3 @@
-# List of IPs that can SSH to servers
-variable ssh_ips {
-}
-
 # API token for Digital Ocean
 variable do_token {
   sensitive = true
