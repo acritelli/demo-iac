@@ -34,10 +34,15 @@ jobs:
         TF_VAR_aws_access_key_id: ${{ secrets.aws_access_key_id }}
         TF_VAR_aws_secret_access_key: ${{ secrets.aws_secret_access_key }}
 
+  generate-inventory:
+    name: 'Generate Inventory File'
+    runs-on: ubuntu-latest
+    environment: production
+
     - name: Generate Ansible inventory
       run: ./do-inventory.sh
       env:
         DO_TOKEN: ${{ secrets.do_token }}
 
-    - name: Run Ansible
-      run: ansible -v
+    # - name: Run Ansible
+    #   run: ansible -v

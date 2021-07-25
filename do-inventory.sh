@@ -1,8 +1,8 @@
 #!/bin/bash
 
-current_directory=$(pwd)
+code_directory=$(pwd)
 
-echo $current_directory
+echo $code_directory
 
 cd /tmp
 
@@ -15,5 +15,6 @@ sudo mv -f do-ansible-inventory /bin/
 
 do-ansible-inventory -t $DO_TOKEN --ignore tf-www.acritelli.com --no-group-by-region --no-group-by-project
 
-cd $current_directory
-pwd
+cd $code_directory
+
+do-ansible-inventory -t "$DO_TOKEN" --ignore tf-www.acritelli.com --no-group-by-region --no-group-by-project > ansible/inventory.ini
