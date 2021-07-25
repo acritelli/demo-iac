@@ -15,9 +15,9 @@
     src: var/www/html/index.html.j2
 
 - name: Copy static website content
-  ansible.builtin.copy:
-    dest: /var/www/html/website_files
-    src: var/www/html/website_files/
+  ansible.builtin.unarchive:
+    src: var/www/html/website_files.tgz
+    dest: /var/www/html/
 
 - name: Start Apache
   ansible.builtin.service:
