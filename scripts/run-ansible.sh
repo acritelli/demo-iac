@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Add SSH Key
+mkdir -p ~/.ssh
 echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
 
 # Sleep briefly to ensure droplets come up
