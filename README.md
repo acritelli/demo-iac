@@ -9,7 +9,7 @@ At a high level:
 * `scripts` - Scripts used by GitHub actions
 * `terraform` - Deploys infrastructure (DigitalOcean for servers and firewalling, AWS for DNS)
 
-When you're done, loadbalancer.demo.acritelli.com will be front-ending a website:
+When you're done, www.demo.acritelli.com will be front-ending a website:
 
 ![Deployed Website](doc/img/website.png)
 

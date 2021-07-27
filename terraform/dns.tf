@@ -14,3 +14,11 @@ resource "aws_route53_record" "loadbalancer-dns" {
   ttl     = "60"
   records = [digitalocean_droplet.demo-loadbalancer.ipv4_address]
 }
+
+resource "aws_route53_record" "website-cname" {
+  zone_id = data.aws_route53_zone.demo-acritelli-com-zone.zone_id
+  name    = "www.demo.acritelli.com"
+  type    = "CNAME"
+  ttl     = "60"
+  records = ["loadbalancer.demo.acritelli.com"]
+}
